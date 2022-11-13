@@ -41,7 +41,7 @@
 
 
 
-
+# Requrements: python, git, ssh, sshpass 
 
 
 
@@ -62,8 +62,10 @@ def run_operation(user, host, pswd, operation):
     # print(cmd)
     # operation  = f'whoami'
     
+    # prepare_data_place  = f'mkdir output > /dev/null 2> /dev/null; cd output; '
     prepare_data_place  = f'mkdir output > /dev/null 2> /dev/null; cd output; '
-    connect_to_vm       = f"sshpass -p '{pswd}' ssh {user}@{host} '{operation}' > {user}.txt"
+    connect_to_vm       = f"sshpass -p '{pswd}' ssh {user}@{host} '{operation}'"
+    # connect_to_vm       = f"sshpass -p '{pswd}' ssh {user}@{host} '{operation}' > {user}.txt"
     # connect_to_vm       = f"sshpass -p '{pswd}' ssh {user}@{host} '{operation}' "
     
     # cmd  = prepare_data_place + connect_to_vm
