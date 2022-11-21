@@ -1,0 +1,27 @@
+{
+  "dev": [
+    {
+      "name": "vmclient01",
+      "type": "client",
+      "ip": "192.168.0.52",
+      "password": "456123789"
+    },
+    {
+      "name": "vmclient02",
+      "type": "server",
+      "ip": "192.168.0.10",
+      "password": "456123789"
+    }
+  ],
+  "task": [
+    {
+      "name": "iperf3",
+      "type": "operation",
+      "client_timeout": "5",
+      "parallel": 2,
+      "parallel_end": 10,
+      "repeats": "5",
+      "output_file_name": "OUTPUT_DATA"
+    }
+  ]
+}
