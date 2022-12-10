@@ -19,12 +19,25 @@
     {
       "name": "iperf3",
       "type": "operation",
-      "transsmision_time": "4",
+      "transsmision_time": "2",
       "parallel": 1,
-      "parallel_end": 1,
-      "repeats": "5",
+      "parallel_end": 10,
+      "counter": 1,
+      "repeats": 5,
+      "output_file_name": ""
+    },
+    {
+      "name": "ping",
+      "type": "operation",
+      "transsmision_count": 1,
+      "transsmision_count_end": 4,
+      "counter": 1,
+      "repeats": 1,
       "output_file_name": ""
     }
   ]
 }
+
+
+
 

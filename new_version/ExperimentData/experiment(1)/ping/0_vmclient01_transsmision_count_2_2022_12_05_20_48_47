@@ -1,0 +1,7 @@
+PING 192.168.0.10 (192.168.0.10) 56(84) bytes of data.
+64 bytes from 192.168.0.10: icmp_seq=1 ttl=64 time=0.347 ms
+64 bytes from 192.168.0.10: icmp_seq=2 ttl=64 time=0.633 ms
+
+--- 192.168.0.10 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 0.347/0.490/0.633/0.143 ms
