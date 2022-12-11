@@ -1,0 +1,21 @@
+{% extends "template.html" %} 
+{% block title %}Run{% endblock %}
+
+{%block webtitle%}Run & Plot !{% endblock webtitle%}
+{% block main %}
+<h1>Choose tasks that you want to run</h1>
+<br>
+<form  action="{{ url_for("run")}}" method="POST">
+<h2>Iperf3 --> <input type="checkbox" name="match" value="task_iperf3"> </h2>
+<h2>Ping --> <input type="checkbox" name="match" value="task_ping"> </h2>
+
+<br>
+<h1>Choose Plotters that you want to run</h1>
+<h2>Iperf3   --> <input type="checkbox" name="match" value="plotter_iperf3"> </h2>
+
+<br><br>
+<h1><button class="m-2" type="submit">Run</button></h1>
+
+
+  </form>
+{% endblock main %}

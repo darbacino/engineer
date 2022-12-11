@@ -13,7 +13,7 @@ class DataAnalysisPrepare:
     def __get_dirs_in_path(self, path):
         return [item for item in os.listdir(path) if os.path.isdir(f"{path}/{item}")]
 
-    def __uniquify(self, path):
+    def uniquify(self, path):
         filename, extension = os.path.splitext(path)
         counter = 1
 
@@ -42,10 +42,8 @@ class DataAnalysisPrepare:
         
         cwd = vars.PATH_LOCAL_DIR_WITH_EXPERIMENTS
 
-        #TODO POPRAWIC TO GOWNO PONIZEJ
-        #TODO DODAC TO WSZYSTKO W NOWY FOLDER EXPERIMENT(1)
 
-        experiment_dir_name = self.__uniquify(f"{cwd}/experiment")
+        experiment_dir_name = self.uniquify(f"{cwd}/experiment")
         
 
                 
@@ -62,8 +60,7 @@ class DataAnalysisPrepare:
 
                 if not os.path.exists(f"{experiment_dir_name}/{task_name}"):
                     os.mkdir(f"{experiment_dir_name}/{task_name}")
-                
-                # trzeba ogarnac jakies to czytanie plikow JAPIERDOLE 
+
                 
                 for task_data in os.listdir(f"{cwd}/{device}/{dir_task}"):
                     os.rename(f"{cwd}/{device}/{dir_task}/{task_data}",f"{experiment_dir_name}/{task_name}/{index}_{dev_name}_{task_data}" )
@@ -188,7 +185,10 @@ class AveragePlotter:
         parallel,res = zip(*self.__data)
         plt.plot(parallel,res)
         plt.ylabel('some numbers')
-        plt.show()
+        dir_for_graph = f"{vars.CURRENT_WORKING_DIR}/Graphs/graph.png"
+        # dir_for_graph = DataAnalysisPrepare.uniquify(self,path=dir_for_graph)
+        plt.savefig(dir_for_graph)
+        # plt.show()
         
 class DataAnalysis:
     

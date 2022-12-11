@@ -1,0 +1,7 @@
+{% extends "template.html" %} 
+{% block title %}Graphs{% endblock %}
+
+{%block webtitle%}Graphs{% endblock webtitle%}
+{% block main %}
+<img src="{{url_for('static', filename='graph.png')}}" align="middle" />
+{% endblock main %}

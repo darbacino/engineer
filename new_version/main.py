@@ -19,13 +19,43 @@ from DataAnalysis import *
 
 # poprawki czyli trzeba rozpakowac i zebrc to do jednego pliku 
 # dodac do generowanego pliku nazwe urzadzenai na ktorym sie wykonuje task albo np 
+
+def run_selected_tasks(Iperf=False, Ping=False, Plotter_iperf=False):
+    print("test2")
+
+    runner = ExperimentRunner()
+
+    if Iperf:
+        print("here2?")
+        # runner.addStrategy(Iperf3Parallel())
+    
+    if Ping:
+        print("here3?")
+        #runner.addStrategy(PingTask())
+   
+    runner.start()
+    
+    # plot = DataAnalysisPrepare()
+    # plot.addPlotter(Iperf3Plotter())
+    # plot.start()
+    
+    path_to_data = "/home/darbacino/Desktop/engineer/engineer/new_version/ExperimentData/experiment(2)/iperf3"
+    d_analysis = DataAnalysis(path_to_data)
+    d_analysis.withParser(IPerfSpeedParser())
+    d_analysis.withAnalyzer(AveragingAnalyzer())
+    d_analysis.withPlotter(AveragePlotter())
+    
+    if Plotter_iperf:
+        d_analysis.start_iperf3()
+    
 def main():
-    # runner = ExperimentRunner()
+    print("here??")
+    runner = ExperimentRunner()
 
-    # runner.addStrategy(Iperf3Parallel())
-    # runner.addStrategy(PingTask())
+    runner.addStrategy(Iperf3Parallel())
+    runner.addStrategy(PingTask())
 
-    # runner.start()
+    runner.start()
     
     # plot = DataAnalysisPrepare()
     # plot.addPlotter(Iperf3Plotter())
@@ -42,7 +72,8 @@ def main():
     
 
 if __name__ == "__main__":
-    main()
+    # main()
+    pass
     
 # get data from folders
 # parser that data 

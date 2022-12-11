@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+{% block title %}Devices {% endblock %}
+{%block webtitle%}Add or Remove from config !{% endblock webtitle%}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='scripts.js')}}"></script>
+{{super()}}
+{% endblock %}
+
+
+{% block main %}
+
+
+<button class="m-2" id="btn"> Add new fields </button>
+<form  action="{{ url_for("devices")}}" method="POST">
+  <div id="data_form" ></div>
+
+  <button class="m-2" name="btn_add_dev" type="submit">Add to devices</button>
+  <button class="m-2" name="btn_rm_dev"  type="submit">Remove device</button>
+  <br>
+  <button class="m-2" name="btn_add_task" type="submit">Add task</button>
+  <button class="m-2" name="btn_rm_task"  type="submit">Remove task</button>
+</form>
+
+<div class="text-left">
+  <pre >{{data}}</pre>
+</div>
+
+
+<script src="{{url_for('static', filename='scripts.js')}}"></script>
+{% endblock main %}
